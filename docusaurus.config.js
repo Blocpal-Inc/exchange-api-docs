@@ -18,8 +18,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'BlocPal', // Usually your GitHub org/user name.
-  projectName: 'BlocPalX API', // Usually your repo name.
+  organizationName: 'Blocpal-Inc', // Usually your GitHub org/user name.
+  projectName: 'exchange-api-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
