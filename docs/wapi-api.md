@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 # API (WAPI)
 ## General API Information
-* The base endpoint is: **https://api-trading.txquick.com**
+* The base endpoint is: **https://api.blocpal.com**
 * All endpoints return either a JSON object or array.
 * Data is returned in **ascending** order. Oldest first, newest last.
 * All time and timestamp related fields are in milliseconds.
@@ -12,7 +12,7 @@ sidebar_position: 2
 * HTTP `429` return code is used when breaking a request rate limit.
 * HTTP `418` return code is used when an IP has been auto-banned for continuing to send requests after receiving `429` codes.
 * HTTP `5XX` return codes are used for internal errors; the issue is on
-  TxQuick's side.
+  BlocPalX's side.
 * HTTP `504` return code is used when the API successfully sent the message
 but not get a response within the timeout period.
 It is important to **NOT** treat this as a failure; the execution status is
@@ -130,7 +130,7 @@ signature  | 157fb937ec848b5f802daa4d9f62bea08becbf4f311203bda2bd34cd9853e320
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-MBX-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api-trading.txquick.com/wapi/v3/withdraw.html?asset=ETH&address=0x6915f16f8791d0a1cc2bf47c13a6b2a92000504b&amount=1&recvWindow=5000&name=addressName&timestamp=1510903211000&signature=157fb937ec848b5f802daa4d9f62bea08becbf4f311203bda2bd34cd9853e320'
+    [linux]$ curl -H "X-MBX-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.blocpal.com/wapi/v3/withdraw.html?asset=ETH&address=0x6915f16f8791d0a1cc2bf47c13a6b2a92000504b&amount=1&recvWindow=5000&name=addressName&timestamp=1510903211000&signature=157fb937ec848b5f802daa4d9f62bea08becbf4f311203bda2bd34cd9853e320'
     ```
 
 Note that for wapi, parameters must be sent in query strings.
@@ -346,7 +346,7 @@ GET /wapi/v3/apiTradingStatus.html
 ```
 Fetch account api trading status detail.
 
-For more details about our api trading rules, please visit us on Telegram in #TxQuick.
+For more details about our api trading rules, please visit us on Discord.
 
 
 **Weight:**
@@ -420,7 +420,7 @@ timestamp | LONG | YES
 ```
 
 ### DustLog (USER_DATA)
-#### (Will never be implemented - TxQuick does not harvest your dust, it stays in your account)
+#### (Will never be implemented - BlocPalX does not harvest your dust, it stays in your account)
 ```
 GET /wapi/v3/userAssetDribbletLog.html   (HMAC SHA256)
 ```

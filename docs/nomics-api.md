@@ -1,6 +1,6 @@
 # Nomics Exchange Integration Specification
 
-BlocPalX implements the Nomics Exchange Integration Specification via base URL: https://nomics-api.txquick.com/
+BlocPalX implements the Nomics Exchange Integration Specification via base URL: https://nomics-api.blocpal.com/
 
 The original Nomics document can be found at: https://github.com/nomics-crypto/nomics-platform/blob/master/doc/cryptocurrency-api-exchange-integration.md
 

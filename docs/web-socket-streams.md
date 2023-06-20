@@ -1,18 +1,18 @@
 # Web Socket Streams
 ## General WSS information
-* The base endpoint is: **wss://api-trading.txquick.com:443**
+* The base endpoint is: `wss://api.blocpal.com:443`
 * Streams can be accessed either in a single raw stream or in a combined stream
-* Raw streams are accessed at **/ws/\<streamName\>**
-* Combined streams are accessed at **/stream?streams=\<streamName1\>/\<streamName2\>/\<streamName3\>**
-* Combined stream events are wrapped as follows: **{"stream":"\<streamName\>","data":\<rawPayload\>}**
+* Raw streams are accessed at `/ws/\<streamName\>`
+* Combined streams are accessed at `/stream?streams=\<streamName1\>/\<streamName2\>/\<streamName3\>`
+* Combined stream events are wrapped as follows: `{"stream":"\<streamName\>","data":\<rawPayload\>}`
 * All symbols for streams are **lowercase**
-* A single connection to **api-trading.txquick.com** is only valid for 24 hours; expect to be disconnected at the 24 hour mark
+* A single connection to `api.blocpal.com` is only valid for 24 hours; expect to be disconnected at the 24 hour mark
 * The websocket server will send a `ping frame` every 3 minutes. If the websocket server does not receive a `pong frame` back from the connection within a 10 minute period, the connection will be disconnected. Unsolicited `pong frames` are allowed.
 
 ## Aggregate Trade Streams
 The Aggregate Trade Streams push trade information that is aggregated for a single taker order.
 
-**Stream Name:** \<symbol\>@aggTrade
+**Stream Name:** `<symbol>@aggTrade`
 
 **Update Speed:** Real-time
 
@@ -36,7 +36,7 @@ The Aggregate Trade Streams push trade information that is aggregated for a sing
 ## Trade Streams
 The Trade Streams push raw trade information; each trade has a unique buyer and seller.
 
-**Stream Name:** \<symbol\>@trade
+**Stream Name:** `<symbol>@trade`
 
 **Update Speed:** Real-time
 
@@ -63,25 +63,25 @@ The Kline/Candlestick Stream push updates to the current klines/candlestick ever
 
 **Kline/Candlestick chart intervals:**
 
-m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
+m &rarr; minutes; h &rarr; hours; d &rarr; days; w &rarr; weeks; M &rarr; months
 
-* 1m
-* 3m
-* 5m
-* 15m
-* 30m
-* 1h
-* 2h
-* 4h
-* 6h
-* 8h
-* 12h
-* 1d
-* 3d
-* 1w
-* 1M
+  - 1m
+  - 3m
+  - 5m
+  - 15m
+  - 30m
+  - 1h
+  - 2h
+  - 4h
+  - 6h
+  - 8h
+  - 12h
+  - 1d
+  - 3d
+  - 1w
+  - 1M
 
-**Stream Name:** \<symbol\>@kline_\<interval\>
+**Stream Name:** `<symbol>@kline_<interval>`
 
 **Update Speed:** 2000ms
 
@@ -117,7 +117,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 #### (Not yet implemented - coming soon)
 24hr rolling window mini-ticker statistics. These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs.
 
-**Stream Name:** \<symbol\>@miniTicker
+**Stream Name:** `<symbol>@miniTicker`
 
 **Update Speed:** 1000ms
 
@@ -140,7 +140,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 #### (Not yet implemented - coming soon)
 24hr rolling window mini-ticker statistics for all symbols that changed in an array. These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs. Note that only tickers that have changed will be present in the array.
 
-**Stream Name:** !miniTicker@arr
+**Stream Name:** `!miniTicker@arr`
 
 **Update Speed:** 1000ms
 
@@ -157,7 +157,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 #### (Not yet implemented - coming soon)
 24hr rolling window ticker statistics for a single symbol. These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs.
 
-**Stream Name:** \<symbol\>@ticker
+**Stream Name:** `<symbol>@ticker`
 
 **Update Speed:** 1000ms
 
@@ -194,7 +194,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 #### (Not yet implemented - coming soon)
 24hr rolling window ticker statistics for all symbols that changed in an array. These are NOT the statistics of the UTC day, but a 24hr rolling window for the previous 24hrs. Note that only tickers that have changed will be present in the array.
 
-**Stream Name:** !ticker@arr
+**Stream Name:** `!ticker@arr`
 
 **Update Speed:** 1000ms
 
@@ -210,7 +210,7 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 ## Individual Symbol Book Ticker Streams
 Pushes any update to the best bid or ask's price or quantity in real-time for a specified symbol.
 
-**Stream Name:** \<symbol\>@bookTicker
+**Stream Name:** `<symbol>@bookTicker`
 
 **Update Speed:** Real-time
 
@@ -229,7 +229,7 @@ Pushes any update to the best bid or ask's price or quantity in real-time for a 
 ## All Book Tickers Stream
 Pushes any update to the best bid or ask's price or quantity in real-time for all symbols.
 
-**Stream Name:** !bookTicker
+**Stream Name:** `!bookTicker`
 
 **Update Speed:** Real-time
 
@@ -241,9 +241,9 @@ Pushes any update to the best bid or ask's price or quantity in real-time for al
 ```
 
 ## Partial Book Depth Streams
-Top **\<levels\>** bids and asks, pushed every second. Valid **\<levels\>** are 5, 10, or 20.
+Top ``<levels>`` bids and asks, pushed every second. Valid ``<levels>`` are 5, 10, or 20.
 
-**Stream Names:** \<symbol\>@depth\<levels\> OR \<symbol\>@depth\<levels\>@100ms
+**Stream Names:** `<symbol>@depth<levels>` or `<symbol>@depth<levels>@100ms`
 
 **Update Speed:** 1000ms or 100ms
 
@@ -269,7 +269,7 @@ Top **\<levels\>** bids and asks, pushed every second. Valid **\<levels\>** are 
 ## Diff. Depth Stream
 Order book price and quantity depth updates used to locally manage an order book.
 
-**Stream Name:** \<symbol\>@depth OR \<symbol\>@depth@100ms
+**Stream Name:** `<symbol>@depth OR <symbol>@depth@100ms`
 
 **Update Speed:** 1000ms or 100ms
 
@@ -297,9 +297,9 @@ Order book price and quantity depth updates used to locally manage an order book
 ```
 
 ## How to manage a local order book correctly
-1. Open a stream to **wss://api-trading.txquick.com:443/ws/XMRBTC@depth**.
+1. Open a stream to **wss://api.blocpal.com:443/ws/XMRBTC@depth**.
 2. Buffer the events you receive from the stream.
-3. Get a depth snapshot from **https://api-trading.txquick.com/api/v1/depth?symbol=XMRBTC&limit=1000** .
+3. Get a depth snapshot from **https://api.blocpal.com/api/v1/depth?symbol=XMRBTC&limit=1000** .
 4. Drop any event where `u` is <= `lastUpdateId` in the snapshot.
 5. The first processed event should have `U` <= `lastUpdateId`+1 **AND** `u` >= `lastUpdateId`+1.
 6. While listening to the stream, each new event's `U` should be equal to the previous event's `u`+1.

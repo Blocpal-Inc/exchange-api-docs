@@ -1,4 +1,6 @@
-# Current error codes
+# Error codes
+
+## Current error codes
 Errors consist of two parts: an error code and a message. Codes are universal, but messages can vary. Here is the error JSON payload:
 ```javascript
 {
@@ -6,12 +8,12 @@ Errors consist of two parts: an error code and a message. Codes are universal, b
   "msg":"Invalid symbol."
 }
 ```
-Note that for now, TxQuick only returns either a 400 error for a bad request, or a 500 error for a server malfunction.  Please pay attention to the message for details.
+Note that for now, BlocPalX only returns either a ```400 error``` for a bad request, or a ```500 error``` error for a server malfunction.  Please pay attention to the message for details.
 
 
-# Future error codes
+## Future error codes
 
-## 10xx - General Server or Network issues
+### 10xx - General server or network issues
 #### -1000 UNKNOWN
  * An unknown error occured while processing the request.
 
@@ -54,7 +56,7 @@ Note that for now, TxQuick only returns either a 400 error for a bad request, or
  * Signature for this request is not valid.
 
 
-## 11xx - Request issues
+### 11xx - Request issues
 #### -1100 ILLEGAL_CHARS
  * Illegal characters found in a parameter.
  * Illegal characters found in parameter '%s'; legal range is '%s'.
@@ -147,7 +149,7 @@ Note that for now, TxQuick only returns either a 400 error for a bad request, or
  * No trading window could be found for the symbol. Try ticker/24hrs instead.
 
 
-## Messages for -1010 ERROR_MSG_RECEIVED, -2010 NEW_ORDER_REJECTED, and -2011 CANCEL_REJECTED
+#### Messages for -1010 ERROR_MSG_RECEIVED, -2010 NEW_ORDER_REJECTED, and -2011 CANCEL_REJECTED
 This code is sent when an error has been returned by the matching engine.
 The following messages which will indicate the specific error:
 
@@ -175,7 +177,7 @@ Error message | Description
 "OCO orders are not supported for this symbol" | `OCO` is not enabled on the symbol
 
 
-## -9xxx Filter failures
+### -9xxx Filter failures
 Error message | Description
 ------------ | ------------
 "Filter failure: PRICE_FILTER" | `price` is too high, too low, and/or not following the tick size rule for the symbol.
