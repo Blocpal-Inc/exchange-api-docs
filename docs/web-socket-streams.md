@@ -1,4 +1,4 @@
-# Web Socket Streams
+# Web socket streams
 ## General WSS information
 * The base endpoint is: `wss://api.blocpal.com:443`
 * Streams can be accessed either in a single raw stream or in a combined stream
@@ -9,8 +9,8 @@
 * A single connection to `api.blocpal.com` is only valid for 24 hours; expect to be disconnected at the 24 hour mark
 * The websocket server will send a `ping frame` every 3 minutes. If the websocket server does not receive a `pong frame` back from the connection within a 10 minute period, the connection will be disconnected. Unsolicited `pong frames` are allowed.
 
-## Aggregate Trade Streams
-The Aggregate Trade Streams push trade information that is aggregated for a single taker order.
+## Aggregate trade streams
+The aggregate trade streams push trade information that is aggregated for a single taker order.
 
 **Stream Name:** `<symbol>@aggTrade`
 
@@ -33,8 +33,8 @@ The Aggregate Trade Streams push trade information that is aggregated for a sing
 }
 ```
 
-## Trade Streams
-The Trade Streams push raw trade information; each trade has a unique buyer and seller.
+## Trade streams
+The trade streams push raw trade information; each trade has a unique buyer and seller.
 
 **Stream Name:** `<symbol>@trade`
 
@@ -57,11 +57,11 @@ The Trade Streams push raw trade information; each trade has a unique buyer and 
 }
 ```
 
-## Kline/Candlestick Streams
+## Kline/candlestick streams
 #### (Not yet implemented - coming soon)
-The Kline/Candlestick Stream push updates to the current klines/candlestick every second.
+The Kline/candlestick stream push updates to the current klines/candlestick every second.
 
-**Kline/Candlestick chart intervals:**
+**Kline/candlestick chart intervals:**
 
 m &rarr; minutes; h &rarr; hours; d &rarr; days; w &rarr; weeks; M &rarr; months
 

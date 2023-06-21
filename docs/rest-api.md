@@ -1,12 +1,12 @@
 # REST API 
 
-## General API Information
+## General API information
 * The base endpoint is: **https://api.blocpal.com**
 * All endpoints return either a JSON object or array.
 * Data is returned in **ascending** order. Oldest first, newest last.
 * All time and timestamp related fields are in **milliseconds**.
 
-## HTTP Return Codes
+## HTTP return codes
 
 * HTTP `4XX` return codes are used for malformed requests;
   the issue is on the sender's side.
@@ -39,9 +39,9 @@ Sample Payload below:
 * If a parameter sent in both the `query string` and `request body`, the
   `query string` parameter will be used.
 
-# LIMITS
+## LIMITS
 
-## General Info on Limits
+### General Info on Limits
 * The following `intervalLetter` values for headers:
     * SECOND => S
     * MINUTE => M
@@ -51,7 +51,7 @@ Sample Payload below:
 * The `/api/v3/exchangeInfo` `rateLimits` array contains objects related to the exchange's `RAW_REQUEST`, `REQUEST_WEIGHT`, and `ORDER` rate limits. These are further defined in the `ENUM definitions` section under `Rate limiters (rateLimitType)`.
 * A 429 will be returned when either rate limit is violated.
 
-## IP Limits
+### IP limits
 * Every request will contain `X-MBX-USED-WEIGHT-(intervalNum)(intervalLetter)` in the response headers which has the current used weight for the IP for all request rate limiters defined.
 * Each route has a `weight` which determines for the number of requests each endpoint counts for. Heavier endpoints and endpoints that do operations on multiple symbols will have a heavier `weight`.
 * When a 429 is received, it's your obligation as an API to back off and not spam the API.
@@ -60,12 +60,12 @@ Sample Payload below:
 * A `Retry-After` header is sent with a 418 or 429 responses and will give the **number of seconds** required to wait, in the case of a 418, to prevent a ban, or, in the case of a 429, until the ban is over.
 * **The limits on the API are based on the IPs, not the API keys.**
 
-## Order Rate Limits
+### Order rate limits
 * Every successful order response will contain a `X-MBX-ORDER-COUNT-(intervalNum)(intervalLetter)` header which has the current order count for the IP for all order rate limiters defined.
 * Rejected/unsuccessful orders are not guaranteed to have `X-MBX-ORDER-COUNT-**` headers in the response.
 * **The order rate limit is counted against each account**.
 
-# Endpoint security type
+## Endpoint security type
 * Each endpoint has a security type that determines the how you will
   interact with it. This is stated next to the NAME of the endpoint.
     * If no security type is stated, assume the security type is NONE.
@@ -77,7 +77,7 @@ Sample Payload below:
  can access everything except for TRADE routes.
 * By default, API-keys can access all secure routes.
 
-Security Type | Description
+Security type | Description
 ------------ | ------------
 NONE | Endpoint can be accessed freely.
 TRADE | Endpoint requires sending a valid API-Key and signature.
@@ -88,7 +88,7 @@ MARKET_DATA | Endpoint requires sending a valid API-Key.
 
 * `TRADE` and `USER_DATA` endpoints are `SIGNED` endpoints.
 
-# SIGNED (TRADE and USER_DATA) Endpoint security
+### SIGNED (TRADE and USER_DATA) endpoint security
 * `SIGNED` endpoints require an additional parameter, `signature`, to be
   sent in the  `query string` or `request body`.
 * Endpoints use `HMAC SHA256` signatures. The `HMAC SHA256 signature` is a keyed `HMAC SHA256` operation.
@@ -97,7 +97,7 @@ MARKET_DATA | Endpoint requires sending a valid API-Key.
 * `totalParams` is defined as the `query string` concatenated with the
   `request body`.
 
-## Timing security
+### Timing security
 * A `SIGNED` endpoint also requires a parameter, `timestamp`, to be sent which
   should be the millisecond timestamp of when the request was created and sent.
 * An additional parameter, `recvWindow`, may be sent to specify the number of
@@ -122,7 +122,7 @@ server.
 **It is recommended to use a small recvWindow of 5000 or less! The max cannot go beyond 60,000!**
 
 
-## SIGNED Endpoint Examples for POST /api/v3/order
+### SIGNED endpoint examples for POST /api/v3/order
 Here is a step-by-step example of how to send a vaild signed payload from the
 Linux command line using `echo`, `openssl`, and `curl`.
 
@@ -143,7 +143,7 @@ price | 0.1
 recvWindow | 5000
 timestamp | 1499827319559
 
-### Example 1: As a request body
+#### Example 1: As a request body
 * **requestBody:** symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559
 * **HMAC SHA256 signature:**
 
@@ -160,7 +160,7 @@ timestamp | 1499827319559
     [linux]$ curl -H "X-MBX-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.blocpal.com/api/v3/order' -d 'symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
     ```
 
-### Example 2: As a query string
+#### Example 2: As a query string
 * **queryString:** symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559
 * **HMAC SHA256 signature:**
 
@@ -177,7 +177,7 @@ timestamp | 1499827319559
     [linux]$ curl -H "X-MBX-APIKEY: vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A" -X POST 'https://api.blocpal.com/api/v3/order?symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC&quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559&signature=c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71'
     ```
 
-### Example 3: Mixed query string and request body
+#### Example 3: Mixed query string and request body
 * **queryString:** symbol=LTCBTC&side=BUY&type=LIMIT&timeInForce=GTC
 * **requestBody:** quantity=1&price=0.1&recvWindow=5000&timestamp=1499827319559
 * **HMAC SHA256 signature:**
@@ -198,13 +198,13 @@ timestamp | 1499827319559
 Note that the signature is different in example 3.
 There is no & between "GTC" and "quantity=1".
 
-# Public API Endpoints
-## Terminology
+## Public API endpoints
+### Terminology
 * `base asset` refers to the asset that is the `quantity` of a symbol.
 * `quote asset` refers to the asset that is the `price` of a symbol.
 
 
-## ENUM definitions
+### ENUM definitions
 **Symbol status (status):**
 
 * PRE_TRADING
@@ -265,23 +265,23 @@ There is no & between "GTC" and "quantity=1".
 
 **Kline/Candlestick chart intervals:**
 
-m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
+m &rarr; minutes; h &rarr; hours; d &rarr; days; w &rarr; weeks; M &rarr; months
 
-* 1m
-* 3m
-* 5m
-* 15m
-* 30m
-* 1h
-* 2h
-* 4h
-* 6h
-* 8h
-* 12h
-* 1d
-* 3d
-* 1w
-* 1M
+  - 1m
+  - 3m
+  - 5m
+  - 15m
+  - 30m
+  - 1h
+  - 2h
+  - 4h
+  - 6h
+  - 8h
+  - 12h
+  - 1d
+  - 3d
+  - 1w
+  - 1M
 
 **Rate limiters (rateLimitType)**
 * REQUEST_WEIGHT
@@ -1722,7 +1722,7 @@ An `ICEBERG` order is any order where the `icebergQty` is > 0.
 }
 ```
 
-## Exchange Filters
+## Exchange filters
 ### EXCHANGE_MAX_NUM_ORDERS
 The `MAX_NUM_ORDERS` filter defines the maximum number of orders an account is allowed to have open on the exchange.
 Note that both "algo" orders and normal orders are counted for this filter.

@@ -4,38 +4,33 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Secure',
+    Svg: require('@site/static/img/60c2b1efb4f8975a86e85b43_Asset_26.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
+        All of our crypto infrastructure is managed by us on bare-metal servers, with no third-party or cloud exposure. Robust system of hot, warm, and cold multi-sig wallets for storing user funds.      </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Transparent',
+    Svg: require('@site/static/img/60c2b1efb4f897158de85b38_Asset_16.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
+        We are a centralized exchange almost as transparent as a decentralized one. We don't ask for your trust but allow you to verify our reserves and liabilities yourself.      </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Binance and Nomics style API',
+    Svg: require('@site/static/img/60c2c4ef1ae96f1d13b45585_Asset_23.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        No need to wrap your brain around a new API platform. Your current trading software will probably work just fine with us.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

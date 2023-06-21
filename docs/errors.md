@@ -15,19 +15,19 @@ Note that for now, BlocPalX only returns either a ```400 error``` for a bad requ
 
 ### 10xx - General server or network issues
 #### -1000 UNKNOWN
- * An unknown error occured while processing the request.
+  - An unknown error occured while processing the request.
 
 #### -1001 DISCONNECTED
- * Internal error; unable to process your request. Please try again.
+  - Internal error; unable to process your request. Please try again.
 
 #### -1002 UNAUTHORIZED
- * You are not authorized to execute this request.
+  - You are not authorized to execute this request.
 
 #### -1003 TOO_MANY_REQUESTS
- * Too many requests queued.
- * Too many requests; please use the websocket for live updates.
- * Too many requests; current limit is %s requests per minute. Please use the websocket for live updates to avoid polling the API.
- * Way too many requests; IP banned until %s. Please use the websocket for live updates to avoid bans.
+  - Too many requests queued.
+  - Too many requests; please use the websocket for live updates.
+  - Too many requests; current limit is %s requests per minute. Please use the websocket for live updates to avoid polling the API.
+  - Way too many requests; IP banned until %s. Please use the websocket for live updates to avoid bans.
 
 #### -1006 UNEXPECTED_RESP
  * An unexpected response was received from the message bus. Execution status unknown.

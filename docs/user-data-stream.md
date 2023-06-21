@@ -1,4 +1,4 @@
-# API User Data Streams 
+# API user data streams 
 ## General WSS information
 * The base API endpoint is: **https://api.blocpal.com**
 * A User Data Stream `listenKey` is valid for 60 minutes after creation.
@@ -29,7 +29,7 @@ NONE
 }
 ```
 
-### Ping/Keep-alive a listenKey
+### Ping/keep-alive a listenKey
 ```
 PUT /api/v1/userDataStream
 ```
