@@ -13,7 +13,7 @@ Note that for now, BlocPalX only returns either a ```400 error``` for a bad requ
 
 ## Future error codes
 
-### 10xx - General server or network issues
+### 10xx general server or network issues
 #### -1000 UNKNOWN
   - An unknown error occured while processing the request.
 
@@ -56,7 +56,7 @@ Note that for now, BlocPalX only returns either a ```400 error``` for a bad requ
  * Signature for this request is not valid.
 
 
-### 11xx - Request issues
+### 11xx request issues
 #### -1100 ILLEGAL_CHARS
  * Illegal characters found in a parameter.
  * Illegal characters found in parameter '%s'; legal range is '%s'.
@@ -177,7 +177,7 @@ Error message | Description
 "OCO orders are not supported for this symbol" | `OCO` is not enabled on the symbol
 
 
-### -9xxx Filter failures
+### 9xxx filter failures
 Error message | Description
 ------------ | ------------
 "Filter failure: PRICE_FILTER" | `price` is too high, too low, and/or not following the tick size rule for the symbol.

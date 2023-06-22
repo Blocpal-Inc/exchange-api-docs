@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 # API (WAPI)
-## General API Information
+## General API information
 * The base endpoint is: **https://api.blocpal.com**
 * All endpoints return either a JSON object or array.
 * Data is returned in **ascending** order. Oldest first, newest last.
@@ -65,7 +65,7 @@ MARKET_DATA | Endpoint requires sending a valid API-Key.
 
 * `TRADE` and `USER_DATA` endpoints are `SIGNED` endpoints.
 
-## SIGNED (TRADE and USER_DATA) Endpoint security
+## SIGNED (TRADE and USER_DATA) endpoint security
 * `SIGNED` endpoints require an additional parameter, `signature`, to be
   sent in the  `query string` or `request body`.
 * Endpoints use `HMAC SHA256` signatures. The `HMAC SHA256 signature` is a keyed `HMAC SHA256` operation.
@@ -95,7 +95,7 @@ MARKET_DATA | Endpoint requires sending a valid API-Key.
 **Tt recommended to use a small recvWindow of 5000 or less!**
 
 
-## SIGNED Endpoint Examples for POST /wapi/v3/withdraw.html
+## SIGNED endpoint examples for POST /wapi/v3/withdraw.html
 Here is a step-by-step example of how to send a vaild signed payload from the Linux command line using `echo`, `openssl`, and `curl`.
 
 Key | Value
@@ -167,7 +167,7 @@ code | STRING | NO | Two factor auth code (Yubikey, Google Auth, or SMS) if API 
 ```
 
 
-### Deposit History (USER_DATA)
+### Deposit history (USER_DATA)
 ```
 GET /wapi/v3/depositHistory.html (HMAC SHA256)
 ```
@@ -214,7 +214,7 @@ timestamp | LONG | YES
 }
 ```
 
-### Withdraw History (USER_DATA)
+### Withdraw history (USER_DATA)
 ```
 GET /wapi/v3/withdrawHistory.html (HMAC SHA256)
 ```
@@ -268,7 +268,7 @@ timestamp | LONG | YES
 
 
 
-### Deposit Address (USER_DATA)
+### Deposit address (USER_DATA)
 ```
 GET  /wapi/v3/depositAddress.html (HMAC SHA256)
 ```
@@ -297,7 +297,7 @@ timestamp | LONG | YES
 
 ```
 
-### Account Status (USER_DATA)
+### Account status (USER_DATA)
 ```
 GET /wapi/v3/accountStatus.html
 ```
@@ -324,7 +324,7 @@ timestamp | LONG | YES
 }
 ```
 
-### System Status (System)
+### System status (system)
 #### (Not yet implemented - coming soon)
 ```
 GET /wapi/v3/systemStatus.html
@@ -339,7 +339,7 @@ Fetch system status.
 }
 ```
 
-### Account API Trading Status (USER_DATA)
+### Account API trading status (USER_DATA)
 #### (Not yet implemented - coming soon)
 ```
 GET /wapi/v3/apiTradingStatus.html
@@ -502,7 +502,7 @@ timestamp | LONG | YES
 }
 ```
 
-### Trade Fee (USER_DATA)
+### Trade fee (USER_DATA)
 #### (Not yet implemented - coming soon)
 ```
 GET  /wapi/v3/tradeFee.html (HMAC SHA256)
@@ -539,7 +539,7 @@ symbol | STRING | NO
 ```
 
 
-### Asset Detail (USER_DATA)
+### Asset detail (USER_DATA)
 #### (Not yet implemented - coming soon)
 ```
 GET  /wapi/v3/assetDetail.html (HMAC SHA256)
@@ -581,7 +581,7 @@ timestamp | LONG | YES
 ```
 
 
-### Query Sub-account List(For Master Account)
+### Query sub-account list(for master account)
 #### (Not yet implemented - coming soon)
 ```
 GET   /wapi/v3/sub-account/list.html (HMAC SHA256)
@@ -629,7 +629,7 @@ timestamp | LONG | YES
 }
 ```
 
-### Query Sub-account Transfer History(For Master Account)
+### Query sub-account transfer history(for master account)
 #### (Not yet implemented - coming soon)
 ```
 GET   /wapi/v3/sub-account/transfer/history.html (HMAC SHA256)
@@ -676,7 +676,7 @@ timestamp | LONG | YES
 }
 ```
 
-### Sub-account Transfer(For Master Account)
+### Sub-account transfer(for master account)
 #### (Not yet implemented - coming soon)
 ```
 POST   /wapi/v3/sub-account/transfer.html (HMAC SHA256)
@@ -709,7 +709,7 @@ timestamp | LONG | YES
 ```
 
 
-### Query Sub-account Assets(For Master Account)
+### Query sub-account assets(for master account)
 #### (Not yet implemented - coming soon)
 ```
 GET   /wapi/v3/sub-account/assets.html (HMAC SHA256)
@@ -763,7 +763,7 @@ symbol | STRING | NO
 }
 ```
 
-### Dust Transfer (USER_DATA)
+### Dust transfer (USER_DATA)
 #### (Not yet implemented - coming soon)
 ```
 Post /sapi/v1/asset/dust (HMAC SHA256)

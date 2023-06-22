@@ -9,11 +9,11 @@ sidebar_label: About
 * The use of any other streams, endpoints, parameters, payloads, etc. is **not supported**; **use them at your own risk and with no guarantees.**
 
 
-API Clients & Examples 
+API clients and examples 
 ------------
 [JAVA](https://gitlab.com/txquick/txquick-api-java-client)
 
-## Credit to Binance & Nomics
+## Credit to Binance and Nomics
 
 While BlocPalX could easily have used its proprietary APIs (BlocPalX has roots in TxQuick and BTC Trading Corp code, thus already had a very robust
 API) It was decided that BlocPalX should instead adopt well-known APIs in order to make integration quick and straightforward with existing
