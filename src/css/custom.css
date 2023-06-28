@@ -22,8 +22,11 @@
   --ifm-color-secondary-lighter: #f29e5a;
   --ifm-color-secondary-lightest: #f5b582;
   --ifm-link-color:#e46f12;;
-
+  --ifm-footer-background-color: #021747;
+  --ifm-footer-link-color:white;
+  --ifm-footer-title-color:white;
   --ifm-code-font-size: 95%;
+  --ifm-footer-link-hover-color: #ef8632;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
