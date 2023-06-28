@@ -17,7 +17,7 @@ API clients and examples
 
 While BlocPalX could easily have used its proprietary APIs (BlocPalX has roots in TxQuick and BTC Trading Corp code, thus already had a very robust
 API) It was decided that BlocPalX should instead adopt well-known APIs in order to make integration quick and straightforward with existing
-tools and implementations. Thus we chose to implement the Binance API for Trading and the Nomics API for Basic Market Data in lieu of continued
+tools and implementations. Thus we chose to implement the Binance API for trading and the Nomics API for basic market data in lieu of continued
 support for our existing API, and we believe credit should go where credit is due. Thank you both [Nomics](https://nomics.com/) and [Binance](https://binance.com) for your contributions to the cryptocurrency community!
 
 Our implementation should be compatible, and if you come across any component that is not, please get in touch with us on [Discord](https://discord.gg/tvcTwPT9Bt).
